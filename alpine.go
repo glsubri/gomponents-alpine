@@ -117,6 +117,20 @@ func Id(v string) g.Node {
 	return attr("id", v)
 }
 
+// Mask allows you to automatically format a text input field as a user types.
+// Part of the Mask Plugin
+// see https://alpinejs.dev/plugins/mask
+func Mask(v string) g.Node {
+	return attr("mask", v)
+}
+
+// MaskDynamic allows you to automatically format a text input field as a user types.
+// Part of the Mask Plugin
+// see https://alpinejs.dev/plugins/mask
+func MaskDynamic(v string) g.Node {
+	return attr("mask:dynamic", v)
+}
+
 func attr(name string, value ...string) g.Node {
 	return g.Attr("x-"+name, value...)
 }

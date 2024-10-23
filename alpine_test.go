@@ -12,6 +12,7 @@ import (
 
 func TestAttributesWithString(t *testing.T) {
 	cases := map[string]func(string) g.Node{
+		// Alpine directives
 		"data":      x.Data,
 		"init":      x.Init,
 		"show":      x.Show,
@@ -25,6 +26,9 @@ func TestAttributesWithString(t *testing.T) {
 		"teleport":  x.Teleport,
 		"if":        x.If,
 		"id":        x.Id,
+		// Mask Plugin directives
+		"mask":         x.Mask,
+		"mask:dynamic": x.MaskDynamic,
 	}
 
 	for name, fn := range cases {
