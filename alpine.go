@@ -146,6 +146,14 @@ func MaskDynamic(v string) g.Node {
 	return attr("mask:dynamic", v)
 }
 
+// Helpers
+
+// Class allows you to write the binded class attribute ':class'
+// see https://alpinejs.dev/directives/bind#binding-classes
+func Class(v string) g.Node {
+	return g.Attr(":class", v)
+}
+
 func attr(name string, value ...string) g.Node {
 	return g.Attr("x-"+name, value...)
 }

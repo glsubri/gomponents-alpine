@@ -67,7 +67,7 @@ func toggle() Node {
 		x.Data("{ isChecked: false }"),
 
 		Class("relative inline-block h-8 w-14 cursor-pointer rounded-full transition [-webkit-tap-highlight-color:_transparent]"),
-		Attr(":class", "{ 'bg-gray-300': !isChecked, 'bg-green-500': isChecked }"),
+		x.Class("{ 'bg-gray-300': !isChecked, 'bg-green-500': isChecked }"),
 
 		Input(
 			x.Model("isChecked"),
