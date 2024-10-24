@@ -32,6 +32,7 @@ func displayPage() Node {
 
 			toggle(),
 			maskInput(),
+			transitions(),
 		),
 	)
 }
@@ -112,6 +113,30 @@ func toggle() Node {
 					Attr("clip-rule", "evenodd"),
 				),
 			),
+		),
+	)
+}
+
+func transitions() Node {
+	return Div(
+		x.Data("{ open: false }"),
+
+		Button(
+			Class("border bg-gray-200 p-2 rounded"),
+			x.On("click", "open = !open"),
+			Text("Toggle"),
+		),
+
+		Div(
+			x.Show("open"),
+			x.Transition(":enter", "transition ease-out duration-300"),
+			x.Transition(":enter-start", "opacity-0 scale-90"),
+			x.Transition(":enter-end", "opacity-100 scale-100"),
+			x.Transition(":leave", "transition ease-in duration-300"),
+			x.Transition(":leave-start", "opacity-100 scale-100"),
+			x.Transition(":leave-end", "opacity-0 scale-90"),
+
+			Text("Hello 👋"),
 		),
 	)
 }

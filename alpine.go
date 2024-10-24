@@ -77,13 +77,10 @@ func Transition(v ...string) g.Node {
 		node = g.Attr("x-transition")
 	case 1:
 		node = g.Attr("x-transition" + v[0])
+	case 2:
+		node = g.Attr("x-transition"+v[0], v[1])
 	default:
-		mapped := make([]g.Node, len(v))
-		for i, elem := range v {
-			mapped[i] = g.Attr("x-transition" + elem)
-		}
-
-		return g.Group(mapped)
+		panic("transition arguments must follow alpinejs spec and have no arguments, one customizer, or one directive and classes")
 	}
 
 	return node

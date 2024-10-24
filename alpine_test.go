@@ -76,17 +76,17 @@ func TestTransition(t *testing.T) {
 			args:     nil,
 			expected: "<div x-transition></div>",
 		},
-		"one empty argument": {
+		"an empty argument": {
 			args:     []string{""},
 			expected: "<div x-transition></div>",
 		},
-		"one argument": {
+		"a customizer": {
 			args:     []string{".duration.500ms"},
 			expected: "<div x-transition.duration.500ms></div>",
 		},
-		"multiple arguments": {
-			args:     []string{":enter.duration.500ms", ":leave.duration.400ms"},
-			expected: "<div x-transition:enter.duration.500ms x-transition:leave.duration.400ms></div>",
+		"a directive and custom classes classes": {
+			args:     []string{":enter", "transition ease-out duration-300"},
+			expected: `<div x-transition:enter="transition ease-out duration-300"></div>`,
 		},
 	}
 
