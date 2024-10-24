@@ -70,8 +70,23 @@ func For(v string) g.Node {
 
 // Transition allows you to create smooth transitions between when an element is shown or hidden.
 // see https://alpinejs.dev/directives/transition
-func Transition() g.Node {
-	return attr("transition")
+func Transition(v ...string) g.Node {
+	var node g.Node
+	switch len(v) {
+	case 0:
+		node = g.Attr("x-transition")
+	case 1:
+		node = g.Attr("x-transition" + v[0])
+	default:
+		mapped := make([]g.Node, len(v))
+		for i, elem := range v {
+			mapped[i] = g.Attr("x-transition" + elem)
+		}
+
+		return g.Group(mapped)
+	}
+
+	return node
 }
 
 // Effect is used for re-evaluating an expression when one of its dependencies change.
