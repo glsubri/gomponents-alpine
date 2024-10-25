@@ -76,6 +76,8 @@ func htmlLayoutHead() Node {
 	)
 }
 
+// example toggle from hyperui.dev
+// https://www.hyperui.dev/components/application-ui/toggles
 func toggle() Node {
 	return Label(
 		x.Data("{ isChecked: false }"),
@@ -130,6 +132,7 @@ func toggle() Node {
 	)
 }
 
+// example from: https://alpinejs.dev/directives/transition#applying-css-classes
 func transitions() Node {
 	return Div(
 		x.Data("{ open: false }"),
@@ -154,6 +157,7 @@ func transitions() Node {
 	)
 }
 
+// example for mask plugin
 func maskInput() Node {
 	return Input(
 		x.Data(""),
